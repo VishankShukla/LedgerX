@@ -26,6 +26,11 @@ const userSchema = new mongoose.Schema(
       default: false,
       immutable: true,
       select: false
+    },
+    activeAccount:{
+        type: Number,
+        required: [true, "Tracking Number Of active account"],
+        default: 0
     }
   },
   {

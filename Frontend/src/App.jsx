@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import SendMoney from "./pages/SendMoney";
 import NotFound from "./pages/NotFound";
+import AccountDetail from "./pages/AccountDetail";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="send" element={<SendMoney />} />
+            <Route path="account/:accountId" element={<AccountDetail />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />

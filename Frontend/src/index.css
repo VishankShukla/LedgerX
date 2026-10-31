@@ -398,3 +398,68 @@ select:focus {
         margin-left: 6px;
     }
 }
+/* =========================
+   CLICKABLE CARD
+========================= */
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   TRANSACTION HISTORY
+========================= */
+
+.tx-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.tx-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tx-meta {
+    margin: 4px 0 0;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.tx-right {
+    display: grid;
+    justify-items: end;
+    gap: 6px;
+}
+
+.tx-amount {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.tx-amount.credit {
+    color: var(--ok);
+}
+
+.tx-amount.debit {
+    color: var(--err);
+}
+
+.badge.PENDING {
+    background: #3b341f;
+    color: #ffc857;
+}
+
+.badge.FAILED,
+.badge.REVERSED {
+    background: #3b1f27;
+    color: var(--err);
+}
