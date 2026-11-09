@@ -1,5 +1,6 @@
 const accountModel = require("../Models/account.model");
 const transactionModel = require("../Models/transaction.model");
+const userModel = require("../Models/user.model");
 
 async function getAccountTransactionHistory(req,res) {
     const { accountId } = req.params;
@@ -20,7 +21,21 @@ async function getAccountTransactionHistory(req,res) {
             {toAccount : accountId},
             {fromAccount : accountId}
         ]
+    }).populate({
+        path: "fromAccount",
+        populate: {
+            path: "user",
+            select: "name"
+        }
+    }).populate({
+        path: "toAccount",
+        populate: {
+            path: "user",
+            select: "name"
+        }
     }).sort({createdAt : -1});
+
+    
 
     return res.status(200).json({
         accountId: account._id,

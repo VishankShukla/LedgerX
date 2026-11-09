@@ -26,11 +26,11 @@ export default function TransactionList({ accountId }){
     return(
         <div className="tx-list">
             {transactions.map((t)=>{
-                const isDebit = t.fromAccount === accountId;
+                const isDebit = t.fromAccount?._id === accountId;
                 return(
                     <div className="card tx-item" key={t._id}>
                         <div>
-                            <strong>{isDebit ? "Sent" : "Received"}</strong>
+                            <strong>{isDebit ? `Sent to ${t.toAccount?.user?.name} - (${t.toAccount?._id})` : `Received from ${t.fromAccount?.user?.name}`}</strong>
                             <p className="muted tx-meta">{formatData(t.createdAt)}</p>
                         </div>
                         <div className="tx-right">
